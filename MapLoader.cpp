@@ -98,7 +98,6 @@ bool MapLoaderImpl::load(string mapFile)
 			}
 			else if (isdigit(inputs[0]) && isdigit(inputs[inputs.size() - 1]) && inputs.find('|') == std::string::npos)
 			{
-				//cout << inputs;
 				if (inputs == "0")
 				{
 					StreetSegment s;
@@ -113,7 +112,6 @@ bool MapLoaderImpl::load(string mapFile)
 			}
 			else if (numofa > 0 && inputs.find('|') != std::string::npos)
 			{
-				//cout << inputs;
 				Attraction aaa;
 				numofa--;
 				string ss = "";
@@ -129,14 +127,12 @@ bool MapLoaderImpl::load(string mapFile)
 					if (inputs[j] != ' ' && inputs[j] != '|' && inputs[j] != ',')
 						gl1 += inputs[j];
 				}
-				//cout << gl1;
 				string gl2 = "";
 				for (int l = j; l < inputs.size(); l++)
 				{
 					if (isdigit(inputs[l]) || inputs[l] == '-' || inputs[l] == '.')
 						gl2 += inputs[l];
 				}
-				//cout << gl2;
 				GeoCoord guuu(gl1, gl2);
 				atname = ss;
 				atg = guuu;
@@ -161,30 +157,6 @@ bool MapLoaderImpl::load(string mapFile)
 	{
 		return false;
 	}
-		/**for (int i = 0; i < v.size(); i++)
-		{
-				cout << v[i].streetName << endl;
-				cout << v[i].segment.start.latitudeText << "," << v[i].segment.start.longitudeText << " " << v[i].segment.end.latitudeText << "," << v[i].segment.end.longitudeText << endl;
-				if (v[i].attractions.size() > 0)
-				{
-					cout << v[i].attractions.size() << endl;
-					for (int c = 0; c < v[i].attractions.size(); c++)
-					{
-						cout << v[i].attractions[c].name << "|" << v[i].attractions[c].geocoordinates.latitudeText << ","
-							<< v[i].attractions[c].geocoordinates.longitudeText << endl;
-					}
-				}
-				else
-					cout << "0" << endl;
-		}**/
-		/**for (int i = 0; i < getNumSegments(); i++)
-		{
-			for (int c = 0; c < v[i].attractions.size(); c++)
-			{
-				if (v[i].attractions[c].name == "The Playboy Mansion")
-					cout << "true " << v[i].attractions[c].geocoordinates.latitudeText << v[i].attractions[c].geocoordinates.longitudeText;
-			}
-		}**/
 	return true;
 }
 
@@ -204,10 +176,6 @@ bool MapLoaderImpl::getSegment(size_t segNum, StreetSegment &seg) const
 	}
 }
 
-//******************** MapLoader functions ************************************
-
-// These functions simply delegate to MapLoaderImpl's functions.
-// You probably don't want to change any of this code.
 
 MapLoader::MapLoader()
 {

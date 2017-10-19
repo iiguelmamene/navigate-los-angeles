@@ -1,11 +1,6 @@
 #ifndef MYMAP_INCLUDED
 #define MYMAP_INCLUDED
 
-// MyMap.h
-
-// Skeleton for the MyMap class template.  You must implement the first six
-// member functions.
-
 template<typename KeyType, typename ValueType>
 class MyMap
 {
@@ -47,35 +42,29 @@ public:
 			}
 			if (key < cur->valuekt)
 			{
-				//cout << "hi" << endl;
 				if (cur->left != nullptr)
 					cur = cur->left;
 				else
 				{
 					cur->left = new Node(key, value);
-					//cout << "hiiii" << endl;
 					m_size++;
 					return;
 				}
 			}
 			else if (key > cur->valuekt)
 			{
-				//cout << "hiii" << endl;
 				if (cur->right != nullptr)
 					cur = cur->right;
 				else
 				{
 					cur->right = new Node(key, value);
-					//cout << "hii" << endl;
 					m_size++;
 					return;
 				}
 			}
 		}
-		//m_size++;
 	}
 
-	// for a map that can't be modified, return a pointer to const ValueType
 	const ValueType* find(const KeyType& key) const
 	{
 		Node* ptr = m_root;
@@ -91,13 +80,11 @@ public:
 		return nullptr;
 	}
 
-	// for a modifiable map, return a pointer to modifiable ValueType
 	ValueType* find(const KeyType& key)
 	{
 		return const_cast<ValueType*>(const_cast<const MyMap*>(this)->find(key));
 	}
 
-	// C++11 syntax for preventing copying and assignment
 	MyMap(const MyMap&) = delete;
 	MyMap& operator=(const MyMap&) = delete;
 
@@ -130,5 +117,5 @@ private:
 	int m_size;
 };
 
-#endif // MYMAP_INCLUDED
+#endif
 
