@@ -43,9 +43,9 @@ bool MapLoaderImpl::load(string mapFile)
 		while (getline(texts, inputs))
 		{
 			int totals = 0;
-			for (int iii = 0; i < inputs.size(); i++)
+			for (int c = 0; c < inputs.size(); c++)
 			{
-				if (isalpha(inputs[i]))
+				if (isalpha(inputs[c]))
 					totals++;
 			}
 			if (inputs.find('|') == std::string::npos && inputs.find(',') == std::string::npos && totals > 0)
@@ -112,7 +112,7 @@ bool MapLoaderImpl::load(string mapFile)
 			}
 			else if (numofa > 0 && inputs.find('|') != std::string::npos)
 			{
-				Attraction aaa;
+				Attraction atr1;
 				numofa--;
 				string ss = "";
 				int k = 0;
@@ -120,25 +120,25 @@ bool MapLoaderImpl::load(string mapFile)
 				{
 					ss += inputs[k];
 				}
-				string gl1 = "";
+				string g1 = "";
 				int j = k;
 				for (j; inputs[j] != ','; j++)
 				{
 					if (inputs[j] != ' ' && inputs[j] != '|' && inputs[j] != ',')
-						gl1 += inputs[j];
+						g1 += inputs[j];
 				}
-				string gl2 = "";
+				string g2 = "";
 				for (int l = j; l < inputs.size(); l++)
 				{
 					if (isdigit(inputs[l]) || inputs[l] == '-' || inputs[l] == '.')
-						gl2 += inputs[l];
+						g2 += inputs[l];
 				}
-				GeoCoord guuu(gl1, gl2);
+				GeoCoord gc1(g1, g2);
 				atname = ss;
-				atg = guuu;
-				aaa.name = atname;
-				aaa.geocoordinates = atg;
-				vv.push_back(aaa);
+				atg = gc1;
+				atr1.name = atname;
+				atr1.geocoordinates = atg;
+				vv.push_back(atr1);
 				if (numofa == 0)
 				{
 					StreetSegment s;
