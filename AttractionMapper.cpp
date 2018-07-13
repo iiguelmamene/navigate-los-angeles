@@ -57,7 +57,6 @@ bool AttractionMapperImpl::getGeoCoord(string attraction, GeoCoord& gc) const
 		return false;
 }
 
-
 AttractionMapper::AttractionMapper()
 {
 	m_impl = new AttractionMapperImpl;
