@@ -46,7 +46,7 @@ bool MapLoaderImpl::load(string mapFile)
 			for (int c = 0; c < inputs.size(); c++)
 			{
 				if (isalpha(inputs[c]))
-					totals++;
+					++totals;
 			}
 			if (inputs.find('|') == std::string::npos && inputs.find(',') == std::string::npos && totals > 0)
 			{
@@ -63,7 +63,7 @@ bool MapLoaderImpl::load(string mapFile)
 				}
 				while (inputs[j] == ' ' || inputs[j] == ',')
 				{
-					j++;
+					++j;
 				}
 				string gl1e = "";
 				for (j; inputs[j] != ' '; j++)
@@ -83,7 +83,7 @@ bool MapLoaderImpl::load(string mapFile)
 				}
 				while (inputs[j] == ' ' || inputs[j] == ',')
 				{
-					j++;
+					++j;
 				}
 				string gl2e = "";
 				for (j; j < inputs.size(); j++)
