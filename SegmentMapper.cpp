@@ -22,9 +22,7 @@ bool operator<(const GeoCoord& a, const GeoCoord& b)
 	else if (a.latitudeText == b.latitudeText)
 	{
 		if (a.longitudeText < b.longitudeText)
-		{
 			return true;
-		}
 		else
 			return false;
 	}
