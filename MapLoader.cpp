@@ -152,7 +152,7 @@ bool MapLoaderImpl::load(string mapFile)
 			}
 		}
 		texts.close();
-}
+	}
 	else
 	{
 		return false;
