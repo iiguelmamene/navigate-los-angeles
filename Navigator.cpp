@@ -228,7 +228,6 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 
 			}
 			
-			bool bggg = true;
 			bool b4b = true;
 			for (int jy = 0; jy < closed.size(); jy++)
 			{
@@ -237,7 +236,7 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 			}
 			if (b4b)
 			{
-				bool kjl = true;
+				bool check_bool = true;
 				for (int jh = 0; jh < opens.size(); jh++)
 				{
 					if (news->coords.latitudeText == opens[jh]->coords.latitudeText && news->coords.longitudeText == opens[jh]->coords.longitudeText)
@@ -248,10 +247,10 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 							opens[jh]->g = news->g;
 							opens[jh]->f = opens[jh]->g + opens[jh]->h;
 						}
-						kjl = false;
+						check_bool = false;
 					}
 				}
-				if (kjl)
+				if (check_bool)
 					opens.push_back(news);
 		}
 		}
