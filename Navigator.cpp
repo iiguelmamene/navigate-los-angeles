@@ -1,4 +1,4 @@
-﻿#include "provided.h"
+#include "provided.h"
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -153,11 +153,11 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 						string thanamez = sss.streetName;
 						GeoCoord thastartz = parttwo[k];
 						GeoCoord thaendz = parttwo[k + 1];
-						GeoSegment thasegz;
-						thasegz.start = thastartz;
-						thasegz.end = thaendz;
+						GeoSegment the_segment;
+						the_segment.start = thastartz;
+						the_segment.end = thaendz;
 						double thadistz = distanceEarthMiles(thastartz, thaendz);
-						double thaangz = angleOfLine(thasegz);
+						double thaangz = angleOfLine(the_segment);
 						string thadirecz;
 						if (thaangz >= 0 && thaangz <= 22.5)
 							thadirecz = "east";
@@ -177,7 +177,7 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 							thadirecz = "southeast";
 						else if (thaangz > 337.5 && thaangz <= 360)
 							thadirecz = "east";
-						NavSegment navs(thadirecz, thanamez, thadistz, thasegz);
+						NavSegment navs(thadirecz, thanamez, thadistz, the_segment);
 						if (directions.size() > 0)
 						{
 							int whereat = directions.size() - 1;
@@ -188,7 +188,7 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 									thanavs = directions[whereat - 1];
 								whereat--;
 							}
-							double theangle = angleBetween2Lines(thanavs.m_geoSegment, thasegz);
+							double theangle = angleBetween2Lines(thanavs.m_geoSegment, the_segment);
 							string whichdirec;
 							string thenamezzz;
 							if (theangle < 180)
