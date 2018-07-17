@@ -185,9 +185,7 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 							while (thanavs.m_command == static_cast<NavSegment::NavCommand>(1))
 							{
 								if (whereat > 0)
-								{
 									thanavs = directions[whereat - 1];
-								}
 								whereat--;
 							}
 							double theangle = angleBetween2Lines(thanavs.m_geoSegment, thasegz);
