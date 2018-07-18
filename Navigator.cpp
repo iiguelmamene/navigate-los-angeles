@@ -190,14 +190,14 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 							}
 							double theangle = angleBetween2Lines(thanavs.m_geoSegment, the_segment);
 							string whichdirec;
-							string thenamezzz;
+							string nameofstreet;
 							if (theangle < 180)
 							{
 								if (thanavs.m_streetName != navs.m_streetName)
 								{
 									whichdirec = "left";
-									thenamezzz = navs.m_streetName;
-									NavSegment turning(whichdirec, thenamezzz);
+									nameofstreet = navs.m_streetName;
+									NavSegment turning(whichdirec, nameofstreet);
 									directions.push_back(turning);
 									directions.push_back(navs);
 								}
@@ -209,8 +209,8 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 								if (thanavs.m_streetName != navs.m_streetName)
 								{
 									whichdirec = "right";
-									thenamezzz = navs.m_streetName;
-									NavSegment turning(whichdirec, thenamezzz);
+									nameofstreet = navs.m_streetName;
+									NavSegment turning(whichdirec, nameofstreet);
 									directions.push_back(turning);
 									directions.push_back(navs);
 								}
