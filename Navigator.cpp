@@ -258,7 +258,6 @@ NavResult NavigatorImpl::navigate(string start, string end, vector<NavSegment> &
 	return NAV_NO_ROUTE;
 }
 
-
 Navigator::Navigator()
 {
 	m_impl = new NavigatorImpl;
